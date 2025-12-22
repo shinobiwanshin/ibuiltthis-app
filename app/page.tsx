@@ -1,10 +1,10 @@
-import Image from "next/image";
-
+import HeroSection from "@/components/landing-page/hero-section";
+import FeaturedProducts from "@/components/landing-page/featured-products";
 export default function Home() {
   return (
     <>
-      <h1>Hello Next.Js</h1>
+      <HeroSection />
+      <FeaturedProducts />
     </>
   );
 }
-``
