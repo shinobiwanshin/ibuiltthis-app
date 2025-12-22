@@ -35,7 +35,7 @@ const statsData = [
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-linear-to-b from-background via-background to-muted/20">
+    <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-muted/20">
       <div className="wrapper">
         <div className="flex flex-col items-center justify-center lg:py-24 py-12 text-center">
           <LiveBadge />

@@ -7,7 +7,7 @@ const outfit = Outfit({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "iBuiltThis - Share Your Projects with the World",
   description:
-    "A community platform for creator to showcase their apps, AI tools, SaaS products, and creative projects. Authentic launches, genuine feedback",
+    "A community platform for creators to showcase their apps, AI tools, SaaS products, and creative projects. Authentic launches, genuine feedback",
 };
 
 export default function RootLayout({
