@@ -20,7 +20,6 @@ interface Product {
   isFeatured: boolean;
   hasVoted?: boolean;
 }
-
 export default function ProductCard({ product }: { product: Product }) {
   const hasVoted = product.hasVoted ?? false;
   return (
