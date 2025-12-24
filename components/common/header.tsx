@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { HomeIcon, SparkleIcon } from "lucide-react";
+import { HomeIcon, Sparkles } from "lucide-react";
 const Logo = () => {
   return (
     <Link href="/" className="flex items-center gap-2 group">
       <div className="size-8 rounded-lg bg-primary flex items-center justify-center">
-        <SparkleIcon className="size-4 text-primary-foreground" />
+        <Sparkles className="size-4 text-primary-foreground" />
       </div>
       <span className="text-xl font-bold">
         i <span className="text-primary">Built</span>This
@@ -20,8 +20,10 @@ export default function Header() {
           <Logo />
           <nav className="flex items-center gap-1">
             <Link href="/">
-              <HomeIcon className="size-4 items-center gap-2 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors" />
-              <span>Home</span>
+              <span className="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                <HomeIcon className="size-4" />
+                <span>Home</span>
+              </span>
             </Link>
           </nav>
         </div>
