@@ -30,7 +30,7 @@ export async function getRecentlyLaunchedProducts() {
   return productsData.filter(
     (product) =>
       product.createdAt !== null &&
-      new Date(product.createdAt.toISOString()) >= oneWeekAgo
+      new Date(product.createdAt) >= oneWeekAgo
   );
 }
 export async function getProductBySlug(slug: string) {
