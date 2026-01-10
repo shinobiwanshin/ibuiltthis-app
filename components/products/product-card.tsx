@@ -12,14 +12,15 @@ import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { InferSelectModel } from "drizzle-orm";
 import { products } from "@/db/schema";
+import VotingButtons from "./voting-button";
 
 type Product = InferSelectModel<typeof products>;
 
 export default function ProductCard({ product }: { product: Product }) {
   const hasVoted = product.hasVoted ?? false;
   return (
-    <Link href={`/products/${product.id}`}>
-      <Card className="group card-hover hover:bg-primary-foreground/10 border-solid border-gray-400 min-h-[220px]">
+    <Link href={`/products/${product.slug}`}>
+      <Card className="group card-hover hover:bg-primary-foreground/10 border-solid border-gray-400 min-h-50">
         <CardHeader className="flex-1">
           <div className="flex items-start gap-4">
             <div className="flex-1  min-w-0">
@@ -36,38 +37,12 @@ export default function ProductCard({ product }: { product: Product }) {
               </div>
               <CardDescription>{product.description}</CardDescription>
             </div>
-            <div className="flex flex-col items-center gap-1 shrink-0">
-              <Button
-                variant="ghost"
-                size="icon-sm"
-                aria-label="Upvote product"
-                className={cn(
-                  "h-8 w-8 text-primary",
-                  hasVoted
-                    ? "bg-primary/10 text-primary hover:bg-primary/20"
-                    : "hover:bg-primary/10 hover:text-primary"
-                )}
-              >
-                <ChevronUpIcon className="size-5" />
-              </Button>
-              <span className="text-sm font-semibold transition-colors text-foreground">
-                {product.voteCount}
-              </span>
-              <Button
-                variant="ghost"
-                size="icon-sm"
-                aria-label="Downvote product"
-                disabled={!hasVoted}
-                className={cn(
-                  "h-8 w-8 text-primary",
-                  hasVoted
-                    ? "hover:text-destructive"
-                    : "opacity-50 cursor-not-allowed"
-                )}
-              >
-                <ChevronDownIcon className="size-5" />
-              </Button>
-            </div>
+            {/* voting button */}
+            <VotingButtons
+              hasVoted={hasVoted}
+              voteCount={product.voteCount}
+              productId={product.id}
+            />
           </div>
         </CardHeader>
         <CardFooter>

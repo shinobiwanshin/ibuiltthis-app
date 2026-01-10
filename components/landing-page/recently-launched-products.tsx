@@ -6,9 +6,10 @@ import { getRecentlyLaunchedProducts } from "@/lib/products/product-select";
 
 export default async function RecentlyLaunchedProducts() {
   const recentlyLaunchedProducts = await getRecentlyLaunchedProducts();
+  // await new Promise((res) => setTimeout(res, 3000));
   return (
     <section className="py-20">
-      <div className="wrapper space-y-8">
+      <div className="wrapper space-y-12">
         <SectionHeader
           title="Recently Launched"
           icon={RocketIcon}

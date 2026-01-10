@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+  BuildingIcon,
   Compass,
   Ghost,
   HomeIcon,
@@ -9,6 +10,7 @@ import {
 } from "lucide-react";
 import { Button } from "../ui/button";
 import {
+  OrganizationSwitcher,
   SignIn,
   SignInButton,
   SignUp,
@@ -18,6 +20,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { Suspense } from "react";
+import CustomUserButton from "./custom-user-button";
 const Logo = () => {
   return (
     <Link href="/" className="flex items-center gap-2 group">
@@ -72,7 +75,7 @@ export default function Header() {
                     <span>Submit</span>
                   </Link>
                 </Button>
-                <UserButton />
+                <CustomUserButton />
               </SignedIn>
             </Suspense>
           </div>
