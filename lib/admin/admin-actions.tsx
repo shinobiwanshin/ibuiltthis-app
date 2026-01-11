@@ -9,6 +9,19 @@ import { revalidatePath } from "next/cache";
 export const approveProductAction = async (productId: ProductType["id"]) => {
   console.log("Approve product", productId);
 
+  const { userId } = await auth();
+  if (!userId) {
+    return { success: false, message: "Unauthorized" };
+  }
+
+  const client = await clerkClient();
+  const user = await client.users.getUser(userId);
+  const isAdmin = user.publicMetadata?.isAdmin ?? false;
+
+  if (!isAdmin) {
+    return { success: false, message: "Forbidden: Admin access required" };
+  }
+
   try {
     await db
       .update(products)
