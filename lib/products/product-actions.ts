@@ -39,7 +39,7 @@ export const addProductAction = async (
       console.log("Validation errors:", fieldErrors);
       return {
         success: false,
-        error: fieldErrors,
+        errors: fieldErrors,
         message: "Validation failed",
       };
     }
@@ -67,13 +67,13 @@ export const addProductAction = async (
     if (error instanceof z.ZodError) {
       return {
         success: false,
-        errors: error.flatten().fieldErrors,
+        errors: error.flatten().fieldErrors as Record<string, string[]>,
         message: "Validation failed, please check your input.",
       };
     }
     return {
       success: false,
-      errors: error,
+      errors: {},
       message: "Product submission failed!",
     };
   }

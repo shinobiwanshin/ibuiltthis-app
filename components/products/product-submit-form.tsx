@@ -41,7 +41,7 @@ export default function ProductSubmitForm() {
         placeholder="My Product"
         required={true}
         onChange={() => {}}
-        error={errors?.name ?? []}
+        error={errors?.name?.[0] ?? ""}
       />
       <FormField
         label="Slug"
@@ -50,7 +50,7 @@ export default function ProductSubmitForm() {
         placeholder="my-product"
         required={true}
         onChange={() => {}}
-        error={errors?.slug ?? []}
+        error={errors?.slug?.[0] ?? ""}
         helperText="The slug is the URL-friendly version of the product name"
       />
       <FormField
@@ -60,7 +60,7 @@ export default function ProductSubmitForm() {
         placeholder="A short, catchy description"
         required={true}
         onChange={() => {}}
-        error={errors?.tagline ?? []}
+        error={errors?.tagline?.[0] ?? ""}
       />
       <FormField
         label="Description"
@@ -69,7 +69,7 @@ export default function ProductSubmitForm() {
         placeholder="Tell us about your product..."
         required={true}
         onChange={() => {}}
-        error={errors?.description ?? []}
+        error={errors?.description?.[0] ?? ""}
         textarea={true}
       />
       <FormField
@@ -79,7 +79,7 @@ export default function ProductSubmitForm() {
         placeholder="https://example.com"
         required={true}
         onChange={() => {}}
-        error={errors?.websiteUrl ?? []}
+        error={errors?.websiteUrl?.[0] ?? ""}
         helperText="enter your product's website or landing page"
       />
       <FormField
@@ -89,7 +89,7 @@ export default function ProductSubmitForm() {
         placeholder="AI, Productivity, Design"
         required={true}
         onChange={() => {}}
-        error={errors?.tags ?? []}
+        error={errors?.tags?.[0] ?? ""}
         helperText="Comma-separated tags to categorize your product"
       />
       <Button type="submit" size="lg" className="w-full">
