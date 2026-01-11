@@ -6,42 +6,6 @@ import Link from "next/link";
 import { ArrowUpRightIcon } from "lucide-react";
 import ProductCard from "../products/product-card";
 import { getFeaturedProducts } from "@/lib/products/product-select";
-// TODO: Replace with real product data from API/database
-// const featuredProducts = [
-//   {
-//     id: "1",
-//     name: "Awesome App",
-//     description: "An awesome app that does awesome things.",
-//     tags: ["Productivity", "AI"],
-//     votes: 124,
-//     isFeatured: true,
-//   },
-//   {
-//     id: "2",
-//     name: "Cool Tool",
-//     description: "A cool tool for cool people.",
-//     tags: ["Utility", "Tools"],
-//     votes: 98,
-//     isFeatured: false,
-//   },
-//   {
-//     id: "3",
-//     name: "Innovative SaaS",
-//     description: "An innovative SaaS solution for modern problems.",
-//     tags: ["SaaS", "Innovation"],
-//     votes: 76,
-//     isFeatured: true,
-//   },
-//   {
-//     id: "4",
-//     name: "Creative Project",
-//     description: "A creative project showcasing unique ideas.",
-//     tags: ["Creative", "Design"],
-//     votes: 54,
-//     isFeatured: false,
-//   },
-// ];
-
 export default async function FeaturedProducts() {
   const featuredProducts = await getFeaturedProducts();
   return (

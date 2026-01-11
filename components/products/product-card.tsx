@@ -1,30 +1,25 @@
-import Link from "next/link";
-import { Badge } from "../ui/badge";
 import {
   Card,
-  CardHeader,
-  CardTitle,
   CardDescription,
   CardFooter,
-} from "../ui/card";
-import { ChevronDownIcon, ChevronUpIcon, StarIcon } from "lucide-react";
-import { Button } from "../ui/button";
-import { cn } from "@/lib/utils";
-import { InferSelectModel } from "drizzle-orm";
-import { products } from "@/db/schema";
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { StarIcon } from "lucide-react";
+import Link from "next/link";
+import { Badge } from "../ui/badge";
 import VotingButtons from "./voting-button";
+import { ProductType } from "@/types";
 
-type Product = InferSelectModel<typeof products>;
-
-export default function ProductCard({ product }: { product: Product }) {
-  const hasVoted = product.hasVoted ?? false;
+export default function ProductCard({ product }: { product: ProductType }) {
+  const hasVoted = false;
   return (
     <Link href={`/products/${product.slug}`}>
-      <Card className="group card-hover hover:bg-primary-foreground/10 border-solid border-gray-400 min-h-50">
+      <Card className="group card-hover hover:bg-primary-foreground/10 border-solid border-gray-400 min-h-[200px]">
         <CardHeader className="flex-1">
           <div className="flex items-start gap-4">
-            <div className="flex-1  min-w-0">
-              <div className=" flex items-center gap-2">
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2">
                 <CardTitle className="text-lg group-hover:text-primary transition-colors">
                   {product.name}
                 </CardTitle>
@@ -37,7 +32,7 @@ export default function ProductCard({ product }: { product: Product }) {
               </div>
               <CardDescription>{product.description}</CardDescription>
             </div>
-            {/* voting button */}
+            {/** Voting buttons */}
             <VotingButtons
               hasVoted={hasVoted}
               voteCount={product.voteCount}
@@ -48,7 +43,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <CardFooter>
           <div className="flex items-center gap-2">
             {product.tags?.map((tag) => (
-              <Badge key={tag} variant="secondary">
+              <Badge variant="secondary" key={tag}>
                 {tag}
               </Badge>
             ))}
